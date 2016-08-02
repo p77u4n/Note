@@ -1,6 +1,7 @@
 **Letter Writing Metaphor** : primitive metaphor grows out of expression "write 
 code" - the writing metaphor : developing program is like writing casual letters 
 -- you sit down with pen, paper and ink then write it from start to finish.
+    
     1. For an individual work or small scale project, the writing metaphor work 
      adequately, but for other purposes _it leaves the party too early_, it 
      does not describe software development fully or adequately
