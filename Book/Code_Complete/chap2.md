@@ -21,6 +21,7 @@ Software Farming Development - **System Accretion Metaphor** : in incremental
 development, you first make the simplest possible of the system that will run. 
 It does not have to accept realistic input, it does not have to implement 
 realistic manipulation on datas, it also does not have to product realistic datas.
+
     1. It just has _strong skeleton_ to hold the real system as it is developed
     This basic design like the oyster`s beginning a pearl with a small grain of 
     sand.
