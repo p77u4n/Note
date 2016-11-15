@@ -23,17 +23,17 @@ A MongoDB shared cluster consists of the following components :
 <p>To distribute the documents in a collection. MongoDB partitions the collection using <strong>shard key</strong>.
 The shard key consis of an immutable fields that exist in every document in the target collection. </p>
 
-<em>The choice of shard key affects the performance, efficiency, and scalability of a sharded cluster. A cluster with
-the best possible hardware and infrastructure can be bottlenecked by the choice shard key</em>
+<p><em>The choice of shard key affects the performance, efficiency, and scalability of a sharded cluster. A cluster with
+the best possible hardware and infrastructure can be bottlenecked by the choice shard key</em></p>
 
 ####Chunks####
 
 <p> MongoDB partitiosn sharded data into <strong>chunks</strong>. Each chunk has an inclusive lower and exclusive upper
-range based on the <em>shard key</em>
+range based on the <em>shard key</em></p>
 
 ####Shared and Non-Sharded Collections####
 
-<p>A database can have a mixture of shared and unshared collections. 
+<p>A database can have a mixture of shared and unshared collections.</p> 
 <ul>
     <li>Shared collections are partitioned and distributed across the shareds in the cluster.</li>
     <li>Unshared collections are stored on a <em>primary shard</em>. Each database has its own primary shard.</li>
