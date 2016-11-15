@@ -103,5 +103,7 @@ in tag aware sharding</a>
 
 
 <strong><u>References</u></strong>
-1. <a href="https://docs.mongodb.com/manual/sharding/">mongdoDB Documentation about Sharding</a>
-2. MongoDB Applied Design Pattern, Chapter 4, p37-63
+<ol>
+    <li><a href="https://docs.mongodb.com/manual/sharding/">mongdoDB Documentation about Sharding</a></li>
+    <li>MongoDB Applied Design Pattern, Chapter 4, p37-63</li>
+</ol>
