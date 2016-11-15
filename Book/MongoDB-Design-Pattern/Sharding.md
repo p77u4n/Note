@@ -26,6 +26,12 @@ The shard key consis of an immutable fields that exist in every document in the 
 <p><em>The choice of shard key affects the performance, efficiency, and scalability of a sharded cluster. A cluster with
 the best possible hardware and infrastructure can be bottlenecked by the choice shard key</em></p>
 
+Ideally, your shard key should have two characteristic : 
+
+<ol>
+    <li>Insertions are <em>balanced</em> between shards</li>
+    <li>Most queries can be <em>routed (routable)</em> to a subset of the shards to be satisfied</li>
+</ol>
 ####Chunks####
 
 <p> MongoDB partitiosn sharded data into <strong>chunks</strong>. Each chunk has an inclusive lower and exclusive upper
@@ -66,6 +72,11 @@ Application do not need to compute hashes</blockquote>
     <li>Data distribution based on hashed values facilitates more even data distribution.</li>
     <li>Hashed distribution meas that ranges-based quries on the shard key are less likely to target a single shard, resulting in more cluster wide <a href=https://docs.mongodb.com/manual/core/sharded-cluster-query-router/#sharding-mongos-broadcast>broadcast operation</a>.</li>
 </ul>
+<strong>Cons</strong>
+<ul>
+    <li>The shard key, and the index on the key, will consume additional space in the database.</li>
+    <li>Queries must run in parallel all shards,which may lead to degraded performance (broadcast operation)</li>
+</ul>
 #####Ranged Sharding#####
 <p>Ranged sharding involves dividing data into ranges based on the shard key values. Each chunk is then assigned
 a range based on the shard key values.</p>
@@ -73,7 +84,7 @@ a range based on the shard key values.</p>
 (https://docs.mongodb.com/manual/_images/sharding-range-based.png)
 
 <ul>
-    <li>A range of shard keys whose values are "close" aremore likely to reside on the same chunk. <strong>this allow for target operations</strong> (as a mongos can route the query to only the shards that contain the required data).</li>
+    <li>A range of shard keys whose values are "close" are more likely to reside on the same chunk. <strong>this allow for target operations</strong> (as a mongos can route the query to only the shards that contain the required data).</li>
     <li>The efficient of ranged sharding depends on the shard key chosen. (Poorly considered shard keys can result in uneven distribution of data. See <a href="https://docs.mongodb.com/manual/core/ranged-sharding/#sharding-ranged-shard-key">shard key selection</a> for ranged sharding) </li>
 </ul>
 
@@ -89,3 +100,8 @@ a targed rage only to those shards assigned that tag</p>.
 A tag range must use fields from the shard key, respecting the order of the fields for compound shard keys.
 See <a href="https://docs.mongodb.com/manual/core/tag-aware-sharding/#tag-aware-sharding-shard-key">shard keys
 in tag aware sharding</a>
+
+
+<strong><u>References</u></strong>
+1. <a href="https://docs.mongodb.com/manual/sharding/">mongdoDB Documentation about Sharding</a>
+2. MongoDB Applied Design Pattern, Chapter 4, p37-63
