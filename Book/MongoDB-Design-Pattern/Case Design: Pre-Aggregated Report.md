@@ -34,7 +34,7 @@ performance killers.</p>
 </ul>
 
 #####One document per page per day, flat document#####
-i
+
 <p>Consider the following example schema for a solution that <em>stores all statistics for a single day and page in a single document</em></p>
 
 ```python
@@ -56,14 +56,14 @@ i
     }
 ```
 
-<strong>Pros</strong>
+######Pros######
 
 <ul>
     <li>For every request on the website, you only need to update one document.</li>
     <li>Reports for time periods within the day, for a single page, require fetching a single document.</li>
 </ul>
 
-<strong>Issue</strong>
+######Issue######
 <dl>
     <dt>As you add data into the <code>hourly</code> and <code>monthly</code> fields, the document will grows.
     Althought MongoDB will pad the space allocated to documents, it must still reallocate these documents
@@ -90,19 +90,15 @@ i
     </dd>
 </dl>
 
-<strong>Separate documents by granularity level</strong>
+######Separate documents by granularity level######
+
 We still have a problem when querying data for long, multiday periods like months 
 or quarters. In such case, storing daily aggregates in a higher-level document can
 speed up these queries.
 
-<table>
-    <tr>
-        <th>Monthly Statistic</th>
-        <th>Dayly Statistic</th>
-    </tr>
-    <tr>
-        <th>
-            ```python
+#######Monthly Statistic#######
+
+```python
                 {
                     _id: "201010/site-1/apache_pb.gif",
                     metadata: {
@@ -114,10 +110,11 @@ speed up these queries.
                         "2": 5214121,
                         ...}
                     }
-        ```
-        </th>
-        <th>
-            ```python
+```
+
+#######Daily Statistic#######
+
+ ```python
             {
 
                 _id: "20101010/site-1/apache_pb.gif",
@@ -143,10 +140,9 @@ speed up these queries.
                     "23": {
                     "59": 2819 }
                     }
-                    } 
-            ```
-        </th>
-    </tr>
-</table>
+            } 
+```
+
+
 
 
