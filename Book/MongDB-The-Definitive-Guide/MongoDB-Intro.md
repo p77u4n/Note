@@ -22,3 +22,11 @@
     <li>MongoDB was designed to scale out : automatically takes care of <strong>balancing data</strong> and <strong>load across cluster</strong>, <strong>redistributing</strong> documents automatically and <strong>routing</strong> user request to the correct machine
     </li>
 </ul>
+
+####Schema Analogy####
+
+<ul>
+    <li>A <em>Document</em> is basic unit of data for MongoDB ~ a row in a relational database</li>
+    <li>A <em>Collection</em> ~ a Table with a dynamic schema.</li>
+    <li>A <em>Special Key</em>, <code>_id</code>, that is unique within a collection.</li>
+</ul>
