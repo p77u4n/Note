@@ -37,6 +37,22 @@
       * Referencing for Many-to-Many Relationship : For instance, suppose we have an commerce system storing products and 
       categories 
         
-
-
-
+####Reference####
+[1] : <https://docs.mongodb.com/v3.0/data-modeling/>
+    
+  * Data Model Patterns 
+       * <a href="https://docs.mongodb.com/v3.0/applications/data-models-relationships/">Models Relationships between Documents </a>
+       * <a href="https://docs.mongodb.com/v3.0/applications/data-models-tree-structures/"> Models Tree Structures</a>
+       * <a href="https://docs.mongodb.com/v3.0/applications/data-models-applications/">Models Specific Application Contexts </a>
+  * Data Model Reference 
+       * <a href="https://docs.mongodb.com/v3.0/reference/database-references/"> Database References</a> 
+          * <a href="https://docs.mongodb.com/v3.0/reference/database-references/#manual-references">Manual References</a> 
+          * <a href="https://docs.mongodb.com/v3.0/reference/database-references/#dbrefs">DBRefs</a>
+       * <a href="https://docs.mongodb.com/v3.0/reference/gridfs/">Files References - GridFS</a>
+  * Data Modeling Concept
+       * <a href="https://docs.mongodb.com/v3.0/core/data-model-operations/">Operation Factor and Data Model</a> : These factors are operational or address requirements that arise outside of the application but impact the performance of MongoDB based applications. When developing a data model, analyze all of your application’s read operations and write operations in conjunction with the following considerations.
+           * <a href="https://docs.mongodb.com/v3.0/core/data-model-operations/#document-growth">Document Growth</a> : if your   applications require updates that will frequently cause document growth to exceeds the current power of 2 allocation, you may want to refactor your data model to use references between data in distinct documents rather than a denormalized data model. You may also use a <a href="https://docs.mongodb.com/ecosystem/use-cases/pre-aggregated-reports-mmapv1/">pre-allocation strategy</a> to explicitly avoid document growth.
+           *<a href="https://docs.mongodb.com/v3.0/core/data-model-operations/#atomicity">Atomicity</a> : In MongoDB, operations are atomic at the document level. No __single write__ operation can change more than one document. Operations that modify more than a single document in a collection still operate on one document at a time. [1] Ensure that your application stores all fields with atomic dependency requirements in the same document. If the application can tolerate non-atomic updates for two pieces of data, you can store these data in separate documents. <a href="https://docs.mongodb.com/v3.0/tutorial/model-data-for-atomic-operations/#data-modeling-atomic-operation">Example</a> 
+           *<a href="https://docs.mongodb.com/v3.0/core/data-model-operations/#sharding">Sharding</a> : See <a href="https://docs.mongodb.com/v3.0/core/sharding-introduction/">Sharding Introduction</a> and <a href="https://docs.mongodb.com/v3.0/core/sharding-shard-key/">Shard Keys</a> for more information.
+           *<a href="https://docs.mongodb.com/v3.0/core/data-model-operations/#indexes">Indexing</a>Use indexes to improve performance for common queries. Build indexes on fields that appear often in queries and for all operations that return sorted results. It is requirement for understanding the behaviors of indexing in this above link.
+              
