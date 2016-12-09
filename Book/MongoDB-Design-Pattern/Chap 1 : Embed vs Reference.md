@@ -6,9 +6,9 @@
 2. <strong>Relational Data Modelling</strong>
  * Data modeling : as series of <em>tables</em>, consisting of <em>rows</em> and <em>columns</em>
  * Ways of putting data : <em>Normal Forms</em>
-  * First normal form (1NF) : each row-column intersection ("cell") containing exactly one value.
-    * Cons : Introduce <em>redundancy</em> -> <em>inconsistency</em>
-  * Third normal form 
+   * First normal form (1NF) : each row-column intersection ("cell") containing exactly one value.
+     * Cons : Introduce <em>redundancy</em> -> <em>inconsistency</em>
+   * Third normal form 
 
 
 
