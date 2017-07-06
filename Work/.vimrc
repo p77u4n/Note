@@ -1,4 +1,4 @@
-"       Amir Salihefendic
+"       Amir Salihefendic (p77u4n version)
 "       http://amix.dk - amix@amix.dk
 "
 " Version: 
@@ -77,6 +77,8 @@ Plugin 'elzr/vim-json'
 Plugin 'Shougo/vimshell.vim'
 Plugin 'Shougo/vimproc'
 Plugin 'Chiel92/vim-autoformat'
+Plugin 'mxw/vim-jsx'
+Plugin 'gregsexton/MatchTag'
 call vundle#end()
 filetype plugin indent on
 set history=700
@@ -153,7 +155,6 @@ set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
-
 set colorcolumn=80
 
 
@@ -166,7 +167,7 @@ syntax enable
 "colorscheme gruvbox 
 "set background=dark
 colorscheme solarized
-set background=light
+set background=dark
 " Set extra options when running in GUI mode
 if has("gui_running")
     set guioptions-=T
@@ -502,3 +503,25 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 "FOR VIM-JAVASCRIPT
 let g:javascript_enable_domhtmlcss = 1
+
+"For session restoring
+map <F2> :mksession! ~/vim_session <cr>
+map <F3> :source ~/vim_session <cr>
+
+"For split navigation
+
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+
+"For select all document
+map <C-a> <esc>ggVG<CR>
+
+"From https://jaxbot.me/articles/setting-up-vim-for-react-js-jsx-02-03-2015 
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+let g:syntastic_javascript_checkers = ['eslint']
+"FOr delete not cut
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+vnoremap <leader>p "_dP
