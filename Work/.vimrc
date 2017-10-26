@@ -1,4 +1,4 @@
-"       Amir Salihefendic (p77u4n version)
+"       Amir Salihefendic
 "       http://amix.dk - amix@amix.dk
 "
 " Version: 
@@ -79,6 +79,9 @@ Plugin 'Shougo/vimproc'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'mxw/vim-jsx'
 Plugin 'gregsexton/MatchTag'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-session'
+Plugin 'matze/vim-move'  
 call vundle#end()
 filetype plugin indent on
 set history=700
@@ -521,7 +524,5 @@ map <C-a> <esc>ggVG<CR>
 "From https://jaxbot.me/articles/setting-up-vim-for-react-js-jsx-02-03-2015 
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:syntastic_javascript_checkers = ['eslint']
-"FOr delete not cut
-nnoremap <leader>d "_d
-vnoremap <leader>d "_d
-vnoremap <leader>p "_dP
+
+"For matze/vim-move
